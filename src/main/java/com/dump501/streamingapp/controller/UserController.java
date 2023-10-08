@@ -16,11 +16,11 @@ public class UserController implements UserApi {
 
     @Override
     public ResponseEntity<UserDto> createUser(UserDto userDto) {
-        return ResponseEntity.ok(userService.createUser(userDto));
+        return ResponseEntity.ok(userService.create(userDto));
     }
 
     @Override
     public ResponseEntity<List<UserDto>> getUsers() {
-        return UserApi.super.getUsers();
+        return ResponseEntity.ok(userService.getAll());
     }
 }

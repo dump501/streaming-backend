@@ -4,8 +4,12 @@ import com.dump501.streamingapp.dto.UserDto;
 import com.dump501.streamingapp.model.User;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserDto entityToDto(User user);
-    User dtoToEntity(UserDto userDto);
+    UserDto toDto(User user);
+    User toEntity(UserDto userDto);
+    List<UserDto> toDto(List<User> users);
+    List<User> toEntity(List<UserDto> userDtos);
 }

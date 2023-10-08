@@ -1,6 +1,6 @@
 type: object
 properties:
-  id:
+  uuid:
     type: string
     format: uuid
   name:
@@ -17,14 +17,14 @@ properties:
     type: array
     items:
       $ref: ChannelDto.yml
-#  comments:
-#    type: array
-#    items:
-#      $ref: CommentDto.yml
-#  likes:
-#    type: array
-#    items:
-#      $ref: LikeDto.yml
+  comments:
+    type: array
+    items:
+      $ref: CommentDto.yml
+  likes:
+    type: array
+    items:
+      $ref: LikeDto.yml
 required:
   - name
   - email
