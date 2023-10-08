@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  title:
+    type: string
+  description:
+    type: string
+  channel:
+    $ref: ChannelDto.yml
+  videos:
+    type: array
+    items:
+      $ref: VideoDto.yml
+required:
+  - title
+  - description

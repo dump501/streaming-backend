@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  title:
+    type: string
+  subTitle:
+    type: string
+  description:
+    type: string
+  profile:
+    type: string
+  author:
+    $ref: UserDto.yml
+  playlists:
+    type: array
+    items:
+      $ref: PlaylistDto.yml
+  videos:
+    type: array
+    items:
+      $ref: VideoDto.yml
+required:
+  - title

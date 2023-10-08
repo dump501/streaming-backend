@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Article API
+  description: |
+    This API Spec is for articles management and the description
+    can span on many lines
+  version: 1.0.0
+  license:
+    name: 2023, LGNE Consulting Sarl
+    url: https://lgne-group.cm
+tags:
+  - name: User
+    description: Endpoints to manipulate Users related stuff
+  - name: Role
+    description: Endpoints to manipulate students related stuff
+  - name: Channel
+    description: Endpoints to manipulate channels related stuff
+  - name: Video
+    description: Endpoints to manipulate videos related stuff
+  - name: Comment
+    description: Endpoints to manipulate comments related stuff
+  - name: Playlist
+    description: Endpoints to manipulate playlists related stuff
+  - name: Like
+    description: Endpoints to manipulate likes related stuff
+
+paths:
+  /user:
+    $ref: apiSpec/paths/user.yml
+  /role:
+    $ref: apiSpec/paths/role.yml
+  /channel:
+    $ref: apiSpec/paths/channel.yml
+  /comment:
+    $ref: apiSpec/paths/comment.yml
+  /like:
+    $ref: apiSpec/paths/like.yml
+  /playlist:
+    $ref: apiSpec/paths/playlist.yml
+  /video:
+    $ref: apiSpec/paths/video.yml
+
+
+
+#components:
+#  schemas:
+#    UserDto:
+#      type: object
+#      properties:
+#        id:
+#          type: string
+#          format: uuid
+#        name:
+#          type: string
+#        email:
+#          type: string
+#        password:
+#          type: string
+#        profile:
+#          type: string
+#        bio:
+#          type: string
+#        channels:
+#          type: array
+#          items: '#/components/schemas/ChannelDto'
+#        comments:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/CommentDto'
+#        likes:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/LikeDto'
+#      required:
+#        - name
+#        - email
+#        - password
+#    ArrayOfUserDto:
+#      type: array
+#      items:
+#        $ref: '#/components/schemas/UserDto'
+#    RoleDto:
+#      type: object
+#      properties:
+#        id:
+#          type: string
+#          format: uuid
+#        title:
+#          type: string
+#        authorizations:
+#          type: string
+#      required:
+#        - title
+#    ArrayOfRoleDto:
+#      type: array
+#      items:
+#        $ref: '#/components/schemas/RoleDto'
+#    ChannelDto:
+#      type: object
+#      properties:
+#        id:
+#          type: string
+#          format: uuid
+#        title:
+#          type: string
+#        subTitle:
+#          type: string
+#        description:
+#          type: string
+#        profile:
+#          type: string
+#        author:
+#          type: object
+#      required:
+#        - title
+#    ArrayOfChannelDto:
+#      type: array
+#      items:
+#        $ref: '#/components/schemas/RoleDto'

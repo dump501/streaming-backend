@@ -5,7 +5,10 @@ spring:
     hibernate:
       ddl-auto: update
     defer-datasource-initialization: true
-  profiles:
-    active: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/streaming-app?server
+    username: root
+    password:
+    driverClassName: com.mysql.cj.jdbc.Driver
   mvc:
     static-path-pattern: /public/**

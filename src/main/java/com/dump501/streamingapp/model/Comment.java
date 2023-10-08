@@ -19,6 +19,7 @@ import java.util.List;
 @Entity
 public class Comment extends BaseModel{
     private String content;
+    @ManyToOne(targetEntity = Video.class)
     private Video video;
     @ManyToOne(targetEntity = User.class)
     private User author;

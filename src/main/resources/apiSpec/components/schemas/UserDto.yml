@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  name:
+    type: string
+  email:
+    type: string
+  password:
+    type: string
+  profile:
+    type: string
+  bio:
+    type: string
+  channels:
+    type: array
+    items:
+      $ref: ChannelDto.yml
+#  comments:
+#    type: array
+#    items:
+#      $ref: CommentDto.yml
+#  likes:
+#    type: array
+#    items:
+#      $ref: LikeDto.yml
+required:
+  - name
+  - email
+  - password

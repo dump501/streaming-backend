@@ -1,0 +1,34 @@
+post:
+  summary: Endpoint to create a video
+  description: This endpoint receive a VideoDto, then creates a video
+  operationId: createVideo
+  tags:
+    - Video
+  requestBody:
+    description: This is the request body received for video creation
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/VideoDto.yml'
+  responses:
+    '201':
+      description: Video created
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/VideoDto.yml'
+get:
+  summary: Retrieve the list of videos
+  description: This endpoint retrieves the entire list of videos
+  operationId: getVideos
+  tags:
+    - Video
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/VideoDto.yml'
