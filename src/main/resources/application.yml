@@ -1,0 +1,11 @@
+#application configuration
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  profiles:
+    active: development
+  mvc:
+    static-path-pattern: /public/**
