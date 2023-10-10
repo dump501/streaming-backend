@@ -25,6 +25,8 @@ tags:
     description: Endpoints to manipulate likes related stuff
 
 paths:
+  /:
+    $ref: apiSpec/paths/front.yml
   /user:
     $ref: apiSpec/paths/user.yml
   /role:

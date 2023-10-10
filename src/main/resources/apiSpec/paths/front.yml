@@ -1,0 +1,13 @@
+get:
+  summary: Check if the server running
+  description: This endpoint Check if the server is up and running
+  operationId: getMessage
+  tags:
+    - Front
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: string
