@@ -3,12 +3,12 @@ properties:
   uuid:
     type: string
     format: uuid
-  user:
-    $ref: UserDto.yml
-  video:
-    $ref: VideoDto.yml
-  comment:
-    $ref: CommentDto.yml
+#  user:
+#    $ref: UserDto.yml
+#  video:
+#    $ref: VideoDto.yml
+#  comment:
+#    $ref: CommentDto.yml
   likeType:
     type: string
 required:

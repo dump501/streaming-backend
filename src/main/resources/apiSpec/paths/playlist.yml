@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/PlaylistDto.yml'
+          $ref: '../components/requestBodies/playlistStore.yml'
   responses:
     '201':
       description: Playlist created

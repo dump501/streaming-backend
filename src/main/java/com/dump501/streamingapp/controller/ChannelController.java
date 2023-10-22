@@ -2,6 +2,7 @@ package com.dump501.streamingapp.controller;
 
 import com.dump501.streamingapp.api.ChannelApi;
 import com.dump501.streamingapp.dto.ChannelDto;
+import com.dump501.streamingapp.dto.ChannelStore;
 import com.dump501.streamingapp.service.ChannelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,8 @@ import java.util.List;
 public class ChannelController implements ChannelApi {
     private final ChannelService channelService;
     @Override
-    public ResponseEntity<ChannelDto> createChannel(ChannelDto channelDto) {
-        return ResponseEntity.ok(channelService.create(channelDto));
+    public ResponseEntity<ChannelDto> createChannel(ChannelStore channelStore) {
+        return ResponseEntity.ok(channelService.create(channelStore));
     }
 
     @Override

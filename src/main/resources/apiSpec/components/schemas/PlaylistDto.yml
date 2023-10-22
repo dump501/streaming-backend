@@ -7,12 +7,12 @@ properties:
     type: string
   description:
     type: string
-  channel:
-    $ref: ChannelDto.yml
-  videos:
-    type: array
-    items:
-      $ref: VideoDto.yml
+#  channel:
+#    $ref: ChannelDto.yml
+#  videos:
+#    type: array
+#    items:
+#      $ref: VideoDto.yml
 required:
   - title
   - description

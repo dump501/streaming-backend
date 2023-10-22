@@ -2,6 +2,7 @@ package com.dump501.streamingapp.controller;
 
 import com.dump501.streamingapp.api.UserApi;
 import com.dump501.streamingapp.dto.UserDto;
+import com.dump501.streamingapp.dto.UserStore;
 import com.dump501.streamingapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,8 @@ public class UserController implements UserApi {
     private final UserService userService;
 
     @Override
-    public ResponseEntity<UserDto> createUser(UserDto userDto) {
-        return ResponseEntity.ok(userService.create(userDto));
+    public ResponseEntity<UserDto> createUser(UserStore userStore) {
+        return ResponseEntity.ok(userService.create(userStore));
     }
 
     @Override

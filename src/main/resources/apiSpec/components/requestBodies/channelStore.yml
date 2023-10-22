@@ -9,10 +9,6 @@ properties:
   profile:
     type: string
   author:
-    type: object
-    properties:
-      uuid:
-        type: string
-        format: uuid
+    $ref: NestedId.yml
 required:
   - title

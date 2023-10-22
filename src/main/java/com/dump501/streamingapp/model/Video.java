@@ -20,6 +20,7 @@ import java.util.List;
 public class Video extends BaseModel{
     private String title;
     private String description;
+    private String thumbnail;
     @ManyToOne(targetEntity = Channel.class)
     private Channel channel;
     @ManyToOne(targetEntity = Playlist.class)

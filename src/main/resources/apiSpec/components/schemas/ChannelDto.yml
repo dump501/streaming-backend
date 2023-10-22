@@ -11,15 +11,15 @@ properties:
     type: string
   profile:
     type: string
-  author:
-    $ref: UserDto.yml
-  playlists:
-    type: array
-    items:
-      $ref: PlaylistDto.yml
-  videos:
-    type: array
-    items:
-      $ref: VideoDto.yml
+#  author:
+#    $ref: UserDto.yml
+#  playlists:
+#    type: array
+#    items:
+#      $ref: PlaylistDto.yml
+#  videos:
+#    type: array
+#    items:
+#      $ref: VideoDto.yml
 required:
   - title

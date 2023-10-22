@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/LikeDto.yml'
+          $ref: '../components/requestBodies/likeStore.yml'
   responses:
     '201':
       description: User created

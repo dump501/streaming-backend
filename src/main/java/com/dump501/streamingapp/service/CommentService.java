@@ -1,6 +1,7 @@
 package com.dump501.streamingapp.service;
 
 import com.dump501.streamingapp.dto.CommentDto;
+import com.dump501.streamingapp.dto.CommentStore;
 import com.dump501.streamingapp.mapper.CommentMapper;
 import com.dump501.streamingapp.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final CommentMapper commentMapper;
 
-    public CommentDto create(CommentDto commentDto){
+    public CommentDto create(CommentStore commentDto){
         return commentMapper.toDto(commentRepository.save(commentMapper.toEntity(commentDto)));
     }
 }

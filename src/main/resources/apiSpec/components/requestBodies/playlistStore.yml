@@ -1,0 +1,16 @@
+type: object
+properties:
+  title:
+    type: string
+  description:
+    type: string
+  channel:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+required:
+  - title
+  - description
+  - channel

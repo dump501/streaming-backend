@@ -5,19 +5,19 @@ properties:
     format: uuid
   content:
     type: string
-  video:
-    $ref: VideoDto.yml
-  author:
-    $ref: UserDto.yml
-  parentComment:
-    $ref: CommentDto.yml
-  comments:
-    type: array
-    items:
-      $ref: CommentDto.yml
-  likes:
-    type: array
-    items:
-      $ref: LikeDto.yml
+#  video:
+#    $ref: VideoDto.yml
+#  author:
+#    $ref: UserDto.yml
+#  parentComment:
+#    $ref: CommentDto.yml
+#  comments:
+#    type: array
+#    items:
+#      $ref: CommentDto.yml
+#  likes:
+#    type: array
+#    items:
+#      $ref: LikeDto.yml
 required:
   - content

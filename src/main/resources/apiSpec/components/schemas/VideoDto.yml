@@ -7,14 +7,16 @@ properties:
     type: string
   description:
     type: string
-  channel:
-    $ref: ChannelDto.yml
-  playlist:
-    $ref: PlaylistDto.yml
-  likes:
-    type: array
-    items:
-      $ref: LikeDto.yml
+  thumbnail:
+    type: string
+#  channel:
+#    $ref: ChannelDto.yml
+#  playlist:
+#    $ref: PlaylistDto.yml
+#  likes:
+#    type: array
+#    items:
+#      $ref: LikeDto.yml
 required:
   - title
   - description

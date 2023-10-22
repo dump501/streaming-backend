@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/VideoDto.yml'
+          $ref: '../components/requestBodies/videoStore.yml'
   responses:
     '201':
       description: Video created
