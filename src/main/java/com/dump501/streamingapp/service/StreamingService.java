@@ -1,7 +1,11 @@
 package com.dump501.streamingapp.service;
 
+import com.dump501.streamingapp.model.Video;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,15 +17,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
+import java.util.UUID;
 
 import static com.dump501.streamingapp.constands.ApplicationConstants.*;
 
 @Service
+@RequiredArgsConstructor
 public class StreamingService {
     private final Logger logger = LoggerFactory.getLogger(StreamingService.class);
-    public ResponseEntity<byte[]> prepareContent(final String fileName, final String fileType, final String range){
+    private final VideoService videoService;
+
+    public ResponseEntity<byte[]> prepareContent(final UUID uuid, final String range){
         try{
-            final String fileKey = fileName + "." + fileType;
+            Video video = videoService.getById(uuid);
+            final String fileKey = video.getName();
+            String[] parts = fileKey.split("[.]");
+            String fileType = parts[1];
             long rangeStart = 0;
             long rangeEnd = CHUNK_SIZE;
             Long fileSize = getFileSize(fileKey);
@@ -95,5 +106,28 @@ public class StreamingService {
                 .map((file -> Paths.get(getFilePath(), file)))
                 .map(this::sizeFromFile)
                 .orElse(0L);
+    }
+
+    public Path load(String filename) {
+        URL url = this.getClass().getResource("/images");
+        assert url != null;
+        return new File(url.getFile()).toPath().resolve(filename);
+    }
+
+
+
+    public Resource loadResouce(String filename) {
+        try{
+            Path file = load(filename);
+            Resource resource = new UrlResource(file.toUri());
+            if(resource.exists() || resource.isReadable()){
+                return resource;
+            } else {
+                logger.error("Connot read the file "+filename);
+            }
+        } catch (IOException e){
+            logger.error(e.getMessage());
+        }
+        return null;
     }
 }

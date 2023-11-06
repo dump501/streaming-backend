@@ -1,0 +1,15 @@
+type: object
+properties:
+  content:
+    type: string
+  video:
+    type: string
+    format: uuid
+  author:
+    type: string
+    format: uuid
+  parentComment:
+    type: string
+    format: uuid
+required:
+  - content

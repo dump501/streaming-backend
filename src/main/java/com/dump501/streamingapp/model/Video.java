@@ -19,6 +19,7 @@ import java.util.List;
 @Entity
 public class Video extends BaseModel{
     private String title;
+    private String name;
     private String description;
     private String thumbnail;
     @ManyToOne(targetEntity = Channel.class)

@@ -11,15 +11,43 @@ properties:
     type: string
   profile:
     type: string
-#  author:
-#    $ref: UserDto.yml
-#  playlists:
-#    type: array
-#    items:
-#      $ref: PlaylistDto.yml
-#  videos:
-#    type: array
-#    items:
-#      $ref: VideoDto.yml
-required:
-  - title
+  author:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      email:
+        type: string
+      profile:
+        type: string
+      bio:
+        type: string
+  playlists:
+    type: array
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+  videos:
+    type: array
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        thumbnail:
+          type: string

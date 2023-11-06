@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBodies/commentStore.yml'
+          $ref: '../components/requestBodies/commentRequest.yml'
   responses:
     '201':
       description: Comment created

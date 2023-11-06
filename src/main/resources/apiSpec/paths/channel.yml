@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBodies/channelStore.yml'
+          $ref: '../components/requestBodies/channelRequest.yml'
   responses:
     '201':
       description: Channel created

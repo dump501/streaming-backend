@@ -2,15 +2,17 @@ type: object
 properties:
   title:
     type: string
+  name:
+    type: string
   description:
     type: string
   channel:
-    type: object
-    properties:
-      uuid:
-        type: string
-        format: uuid
+    type: string
+    format: uuid
+  playlist:
+    type: string
+    format: uuid
 required:
   - title
   - description
-  - channel
+  -  channel

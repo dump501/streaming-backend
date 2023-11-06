@@ -1,10 +1,7 @@
 package com.dump501.streamingapp.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,7 @@ import java.util.List;
 @Table(name = "users")
 public class User extends BaseModel {
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
     private String profile;

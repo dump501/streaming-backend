@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBodies/userStore.yml'
+          $ref: '../components/requestBodies/userRequest.yml'
   responses:
     '201':
       description: User created
