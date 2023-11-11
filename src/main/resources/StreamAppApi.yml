@@ -9,6 +9,8 @@ info:
     name: 2023, LGNE Consulting Sarl
     url: https://lgne-group.cm
 tags:
+  - name: Auth
+    description: Endpoints for authentication related operations
   - name: User
     description: Endpoints to manipulate Users related stuff
   - name: Role
@@ -27,6 +29,46 @@ tags:
 paths:
   /:
     $ref: apiSpec/paths/front.yml
+  /auth/login:
+    post:
+      summary: Endpoint to log a user in and get jwt token
+      description: This endpoint receive a LoginRequest, then return a jwt
+      operationId: login
+      tags:
+        - Auth
+      requestBody:
+        description: This is the request body received for user login
+        content:
+          application/json:
+            schema:
+              $ref: 'apiSpec/components/requestBodies/LoginRequest.yml'
+      responses:
+        '201':
+          description: Jwt token generated
+          content:
+            application/json:
+              schema:
+                $ref: 'apiSpec/components/schemas/LoginResponse.yml'
+  /auth/register:
+    post:
+      summary: Endpoint to register a user
+      description: This endpoint receive a RegisterRequest, then register a user
+      operationId: register
+      tags:
+        - Auth
+      requestBody:
+        description: This is the request body received for User registration
+        content:
+          application/json:
+            schema:
+              $ref: 'apiSpec/components/requestBodies/RegisterRequest.yml'
+      responses:
+        '201':
+          description: User registrated
+          content:
+            application/json:
+              schema:
+                $ref: 'apiSpec/components/schemas/UserDto.yml'
   /user:
     $ref: apiSpec/paths/user.yml
   /role:

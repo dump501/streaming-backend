@@ -1,0 +1,18 @@
+type: object
+properties:
+  name:
+    type: string
+  email:
+    type: string
+  profile:
+    type: string
+  bio:
+    type: string
+  token:
+    type: string
+  expiresIn:
+    type: integer
+required:
+  - name
+  - email
+  - password
