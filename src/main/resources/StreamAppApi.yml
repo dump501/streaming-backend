@@ -27,6 +27,8 @@ tags:
     description: Endpoints to manipulate likes related stuff
 
 paths:
+
+# public routes
   /:
     $ref: apiSpec/paths/front.yml
   /auth/login:
@@ -84,80 +86,30 @@ paths:
   /video:
     $ref: apiSpec/paths/video.yml
 
-
-
-#components:
-#  schemas:
-#    UserDto:
-#      type: object
-#      properties:
-#        id:
-#          type: string
-#          format: uuid
-#        name:
-#          type: string
-#        email:
-#          type: string
-#        password:
-#          type: string
-#        profile:
-#          type: string
-#        bio:
-#          type: string
-#        channels:
-#          type: array
-#          items: '#/components/schemas/ChannelDto'
-#        comments:
-#          type: array
-#          items:
-#            $ref: '#/components/schemas/CommentDto'
-#        likes:
-#          type: array
-#          items:
-#            $ref: '#/components/schemas/LikeDto'
-#      required:
-#        - name
-#        - email
-#        - password
-#    ArrayOfUserDto:
-#      type: array
-#      items:
-#        $ref: '#/components/schemas/UserDto'
-#    RoleDto:
-#      type: object
-#      properties:
-#        id:
-#          type: string
-#          format: uuid
-#        title:
-#          type: string
-#        authorizations:
-#          type: string
-#      required:
-#        - title
-#    ArrayOfRoleDto:
-#      type: array
-#      items:
-#        $ref: '#/components/schemas/RoleDto'
-#    ChannelDto:
-#      type: object
-#      properties:
-#        id:
-#          type: string
-#          format: uuid
-#        title:
-#          type: string
-#        subTitle:
-#          type: string
-#        description:
-#          type: string
-#        profile:
-#          type: string
-#        author:
-#          type: object
-#      required:
-#        - title
-#    ArrayOfChannelDto:
-#      type: array
-#      items:
-#        $ref: '#/components/schemas/RoleDto'
+## user routes
+#  /user/profile:
+#    $ref: apiSpec/paths/user.yml
+#
+## admin routes
+#  admin/user:
+#    $ref: apiSpec/paths/user.yml
+#  admin/role:
+#    $ref: apiSpec/paths/role.yml
+#  admin/channel:
+#    $ref: apiSpec/paths/channel.yml
+#  admin/comment:
+#    $ref: apiSpec/paths/comment.yml
+#  admin/playlist:
+#    $ref: apiSpec/paths/playlist.yml
+#  admin/video:
+#    $ref: apiSpec/paths/video.yml
+#
+## manager routes
+#  manager/user:
+#    $ref: apiSpec/paths/manager/user.yml
+#  manager/channel:
+#    $ref: apiSpec/paths/manager/channel.yml
+#  manager/playlist:
+#    $ref: apiSpec/paths/manager/playlist.yml
+#  manager/video:
+#    $ref: apiSpec/paths/manager/video.yml

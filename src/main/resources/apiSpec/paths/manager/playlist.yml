@@ -1,0 +1,34 @@
+post:
+  summary: Endpoint to create a playlist
+  description: This endpoint receive a PlaylistDto, then creates a user
+  operationId: createPlaylist
+  tags:
+    - Playlist
+  requestBody:
+    description: This is the request body received for playlist creation
+    content:
+      application/json:
+        schema:
+          $ref: '../components/requestBodies/playlistRequest.yml'
+  responses:
+    '201':
+      description: Playlist created
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/PlaylistDto.yml'
+get:
+  summary: Retrieve the list of playlist
+  description: This endpoint retrieves the entire list of playlist
+  operationId: getPlaylists
+  tags:
+    - Playlist
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/PlaylistDto.yml'
