@@ -6,6 +6,8 @@ properties:
     type: string
   description:
     type: string
+  thumbnail:
+    type: string
   channel:
     type: string
     format: uuid
@@ -15,4 +17,4 @@ properties:
 required:
   - title
   - description
-  -  channel
+  - channel

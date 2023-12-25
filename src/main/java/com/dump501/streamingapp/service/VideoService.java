@@ -30,4 +30,9 @@ public class VideoService {
         Optional<Video> post = this.videoRepository.findById(uuid);
         return post.orElse(null);
     }
+
+    public VideoDto getByUuid(UUID uuid){
+        Optional<Video> video = this.videoRepository.findById(uuid);
+        return video.map(this.videoMapper::toDto).orElse(null);
+    }
 }

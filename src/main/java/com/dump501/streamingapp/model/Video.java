@@ -28,4 +28,6 @@ public class Video extends BaseModel{
     private Playlist playlist;
     @OneToMany(mappedBy = "video")
     private List<Like> likes;
+    @OneToMany(mappedBy = "video")
+    private List<Comment> comments;
 }

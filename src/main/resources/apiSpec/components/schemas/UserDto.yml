@@ -27,6 +27,47 @@ properties:
           type: string
         profile:
           type: string
+        playlists:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid:
+                type: string
+                format: uuid
+              title:
+                type: string
+              description:
+                type: string
+              videos:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                      format: uuid
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    thumbnail:
+                      type: string
+        videos:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid:
+                type: string
+                format: uuid
+              title:
+                type: string
+              description:
+                type: string
+              thumbnail:
+                type: string
+
 #  comments:
 #    type: array
 #    items:

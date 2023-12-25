@@ -11,10 +11,87 @@ properties:
     type: string
   thumbnail:
     type: string
-#  channel:
-#    $ref: ChannelDto.yml
+  channel:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      title:
+        type: string
+      subTitle:
+        type: string
+      description:
+        type: string
+      profile:
+        type: string
+      author:
+        type: object
+        properties:
+          uuid:
+            type: string
+            format: uuid
+          name:
+            type: string
+          email:
+            type: string
+          profile:
+            type: string
+          bio:
+            type: string
+  playlist:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      title:
+        type: string
+      description:
+        type: string
+      videos:
+        type: array
+        items:
+          type: object
+          properties:
+            uuid:
+              type: string
+              format: uuid
+            title:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+            thumbnail:
+              type: string
+  comments:
+    type: array
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        content:
+          type: string
+        author:
+          type: object
+          properties:
+            uuid:
+              type: string
+              format: uuid
+            name:
+              type: string
+            email:
+              type: string
+            profile:
+              type: string
+            bio:
+              type: string
+
+
 #  playlist:
-#    $ref: PlaylistDto.yml
 #  likes:
 #    type: array
 #    items:

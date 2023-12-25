@@ -1,11 +1,13 @@
 package com.dump501.streamingapp.config;
 
 import com.dump501.streamingapp.service.JwtService;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -55,7 +57,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             filterChain.doFilter(request, response);
 
-        } catch (Exception exception) {
+        }catch (ExpiredJwtException e){
+            logger.info("fuckk", e);
+            response.sendError(HttpStatus.UNAUTHORIZED.value(), "Unauthorised");
+        }
+        catch (Exception exception) {
+            logger.info("fuckk", exception);
             handlerExceptionResolver.resolveException(request, response, null, exception);
         }
     }

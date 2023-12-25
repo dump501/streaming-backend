@@ -1,6 +1,7 @@
 package com.dump501.streamingapp.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -18,6 +19,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class Comment extends BaseModel{
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
     @ManyToOne(targetEntity = Video.class)
     private Video video;

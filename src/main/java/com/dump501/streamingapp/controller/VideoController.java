@@ -6,9 +6,12 @@ import com.dump501.streamingapp.dto.VideoRequest;
 import com.dump501.streamingapp.service.VideoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,5 +25,10 @@ public class VideoController implements VideoApi {
     @Override
     public ResponseEntity<List<VideoDto>> getVideos() {
         return ResponseEntity.ok(videoService.getAll());
+    }
+
+    @GetMapping("/video/{uuid}")
+    public ResponseEntity<VideoDto> getVideoDetail(@PathVariable UUID uuid){
+        return ResponseEntity.ok(videoService.getByUuid(uuid));
     }
 }

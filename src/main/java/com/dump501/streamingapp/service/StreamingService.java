@@ -1,6 +1,8 @@
 package com.dump501.streamingapp.service;
 
+import com.dump501.streamingapp.config.StorageProperties;
 import com.dump501.streamingapp.model.Video;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,9 @@ import static com.dump501.streamingapp.constands.ApplicationConstants.*;
 public class StreamingService {
     private final Logger logger = LoggerFactory.getLogger(StreamingService.class);
     private final VideoService videoService;
+    private Path rootLocation;
+    private final StorageProperties properties;
+
 
     public ResponseEntity<byte[]> prepareContent(final UUID uuid, final String range){
         try{
@@ -48,7 +53,7 @@ public class StreamingService {
             }
 
             String[] ranges = range.split("-");
-            rangeStart = Long.parseLong(ranges[0].substring(6)); // we count 6 char for bytes=
+            rangeStart = Long.parseLong(ranges[0].substring(6)); // we count 6 char for 'bytes='
             if(ranges.length > 1){
                 rangeEnd = Long.parseLong(ranges[1]);
             } else {
@@ -86,9 +91,11 @@ public class StreamingService {
     }
 
     private String getFilePath(){
-        URL url = this.getClass().getResource(VIDEO);
-        assert url != null;
-        return new File(url.getFile()).getAbsolutePath();
+        Path rootLocation  = Paths.get(properties.getLocation());
+        return rootLocation.toAbsolutePath().toString();
+//        URL url = this.getClass().getResource(VIDEO);
+//        assert url != null;
+//        return new File(url.getFile()).getAbsolutePath();
     }
 
     private Long sizeFromFile(Path path){

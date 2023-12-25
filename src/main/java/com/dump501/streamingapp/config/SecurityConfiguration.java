@@ -30,9 +30,9 @@ public class SecurityConfiguration {
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Important !! (in other to allow CORS working properly)
                         .requestMatchers("/manager/**").authenticated()
-                        .requestMatchers("/admin/**").authenticated()
+                        .requestMatchers("/v3/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

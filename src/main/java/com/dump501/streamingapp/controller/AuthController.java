@@ -9,15 +9,19 @@ import com.dump501.streamingapp.model.User;
 import com.dump501.streamingapp.service.AuthenticationService;
 import com.dump501.streamingapp.service.JwtService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 @RestController
 @RequiredArgsConstructor
+@Log4j2
 public class AuthController implements AuthApi {
     private final JwtService jwtService;
     private final AuthenticationService authenticationService;
@@ -29,11 +33,12 @@ public class AuthController implements AuthApi {
         String jwtToken = jwtService.generateToken(user);
 
         LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setUuid(user.getUuid());
         loginResponse.setName(user.getName());
         loginResponse.setEmail(user.getEmail());
         loginResponse.setBio(user.getBio());
         loginResponse.setToken(jwtToken);
-        loginResponse.setExpiresIn((int) jwtService.getExpirationTime());
+        loginResponse.setExpiresIn(System.currentTimeMillis() + jwtService.getExpirationTime());
         return ResponseEntity.ok(loginResponse);
     }
 
