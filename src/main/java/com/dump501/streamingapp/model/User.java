@@ -32,8 +32,10 @@ public class User extends BaseModel implements UserDetails {
     private List<Channel> channels;
     @OneToMany(mappedBy = "author")
     private List<Comment> comments;
-    @OneToMany
-    private List<Like> likes;
+    @ManyToMany(mappedBy = "favoriteBy")
+    private List<Video> favoriteVideos;
+    @ManyToMany(mappedBy = "likedBy")
+    private List<Video> likedVideos;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

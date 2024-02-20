@@ -27,6 +27,4 @@ public class Comment extends BaseModel{
     private User author;
     private Comment parentComment;
     private List<Comment> comments;
-    @OneToMany(mappedBy = "comment")
-    private List<Like> likes;
 }

@@ -1,9 +1,7 @@
 package com.dump501.streamingapp.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +25,11 @@ public class Video extends BaseModel{
     @ManyToOne(targetEntity = Playlist.class)
     private Playlist playlist;
     @OneToMany(mappedBy = "video")
-    private List<Like> likes;
-    @OneToMany(mappedBy = "video")
     private List<Comment> comments;
+    @ManyToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "video_uuid"), inverseJoinColumns = @JoinColumn(name = "user_uuid"))
+    private List<User> favoriteBy;
+    @ManyToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "video_uuid"), inverseJoinColumns = @JoinColumn(name = "user_uuid"))
+    private List<User> likedBy;
 }

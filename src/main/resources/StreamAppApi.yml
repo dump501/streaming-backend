@@ -23,9 +23,6 @@ tags:
     description: Endpoints to manipulate comments related stuff
   - name: Playlist
     description: Endpoints to manipulate playlists related stuff
-  - name: Like
-    description: Endpoints to manipulate likes related stuff
-
 paths:
 
 # public routes
@@ -79,8 +76,6 @@ paths:
     $ref: apiSpec/paths/channel.yml
   /comment:
     $ref: apiSpec/paths/comment.yml
-  /like:
-    $ref: apiSpec/paths/like.yml
   /playlist:
     $ref: apiSpec/paths/playlist.yml
   /video:

@@ -89,6 +89,38 @@ properties:
               type: string
             bio:
               type: string
+  favoriteBy:
+    type: array
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+        profile:
+          type: string
+        bio:
+          type: string
+  likedBy:
+    type: array
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+        profile:
+          type: string
+        bio:
+          type: string
 
 
 #  playlist:

@@ -3,8 +3,6 @@ package com.dump501.streamingapp.service;
 import com.dump501.streamingapp.dto.UserDto;
 import com.dump501.streamingapp.dto.UserRequest;
 import com.dump501.streamingapp.mapper.UserMapper;
-import com.dump501.streamingapp.model.Channel;
-import com.dump501.streamingapp.model.User;
 import com.dump501.streamingapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
